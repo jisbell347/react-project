@@ -4,6 +4,10 @@ import Persons from '../Components/Persons/Persons';
 import Cockpit from "../Components/Cockpit/Cockpit";
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+		console.log('[App.js] Inside Constructor', props);
+	}
 	state = {
 		persons: [
 			{id: 'adfak', name: 'John', age: 28},
