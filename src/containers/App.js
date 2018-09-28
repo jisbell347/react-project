@@ -16,7 +16,8 @@ class App extends Component {
 			],
 			otherState: 'some other value',
 			showPersons: false,
-			toggleClicked: 0
+			toggleClicked: 0,
+			authenticated: false
 		};
 	}
 
@@ -52,6 +53,9 @@ class App extends Component {
 			toggleClicked: prevState.toggleClicked + 1}});
 	};
 
+	loginHandler = () => {
+		this.seState({authenticated: true});
+	};
 
 	render() {
 		let persons = null;
@@ -60,9 +64,9 @@ class App extends Component {
 			persons = <Persons
 				persons={this.state.persons}
 				clicked={this.deletePersonHandler}
-				changed={this.nameChangeHandler}/>
+				changed={this.nameChangeHandler}
+			isAuthenticated={this.state.authenticated}/>
 		}
-		;
 
 		return (
 			<Auxiliary>
@@ -70,6 +74,7 @@ class App extends Component {
 					appTitle={this.props.title}
 					showPersons={this.state.showPersons}
 					persons={this.state.persons}
+					login={this.loginHandler}
 					clicked={this.togglePersonsHandler}/>
 				{persons}
 			</Auxiliary>
