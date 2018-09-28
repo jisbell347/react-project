@@ -18,8 +18,8 @@ class Persons extends PureComponent {
 		this.lastPersonRef.current.focus();
 	}
 
-	componentWillRecieveProps(nextProps) {
-		console.log('[Update Persons.js] inside componentWillRecieveProps()', nextProps);
+	componentWillReceiveProps(nextProps) {
+		console.log('[Update Persons.js] inside componentWillReceiveProps()', nextProps);
 	}
 
 	render() {
@@ -31,7 +31,6 @@ class Persons extends PureComponent {
 					position={index}
 					age={person.age}
 					ref={this.lastPersonRef}
-					authenticated={this.props.isAuthenticated}
 					key={person.id}
 					changed={(event) => this.props.changed(event, person.id)}
 				/></ErrorBoundary>
